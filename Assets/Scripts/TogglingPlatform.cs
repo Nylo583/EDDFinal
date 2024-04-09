@@ -55,9 +55,9 @@ public class TogglingPlatform : MonoBehaviour
 
     IEnumerator RollForToggle() {
         canRoll = false;
-        Debug.Log("Waiting timer");
+        //Debug.Log("Waiting timer");
         yield return new WaitForSeconds(minToggleDelay);
-        Debug.Log("Now rolling");
+        //Debug.Log("Now rolling");
 
         while (true) {
             yield return new WaitForSeconds(Time.fixedDeltaTime);

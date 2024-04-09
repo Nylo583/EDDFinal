@@ -7,7 +7,9 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
 
     //states
-    public bool isMoveable, isDamageable, isInAir;
+    public bool isMoveable, isDamageable, isInAir, 
+        canInteractWithTotem, isTotemHeld,
+        canShoot;
 
     [SerializeField]
     float walkSpeed;
@@ -23,6 +25,14 @@ public class PlayerMovement : MonoBehaviour
     [Range(1, 5)]
     int maxJumps;
 
+    GameObject totem;
+
+    [SerializeField]
+    float totemInteractRadius;
+
+    [SerializeField]
+    GameObject totemSitPoint;
+
     private int currentJumps;
 
     void Start()
@@ -32,11 +42,16 @@ public class PlayerMovement : MonoBehaviour
         isDamageable = true;
         isInAir = false;
         currentJumps = 0;
+        canInteractWithTotem = false;
+        canShoot = true;
+        totem = GameObject.Find("Totem");
+        isTotemHeld = false;
     }
 
     void Update() {
         Jump();
         ModulateGravity();
+        InteractWithTotem();
     }
 
     void FixedUpdate()
@@ -82,6 +97,32 @@ public class PlayerMovement : MonoBehaviour
             } else {
                 rb.gravityScale = 2.25F;
             }
+        }
+    }
+
+    private void InteractWithTotem() {
+        float dist = Mathf.Sqrt(Mathf.Pow(this.transform.position.y - totem.transform.position.y, 2f) +
+            Mathf.Pow(this.transform.position.x - totem.transform.position.x, 2f));
+        //Debug.Log(dist);
+        canInteractWithTotem = dist <= totemInteractRadius;
+
+        if (Input.GetKeyDown(KeyCode.E) && isTotemHeld) {
+            Debug.Log("AAA");
+            isTotemHeld = false;
+            totem.transform.SetParent(null, true);
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && canInteractWithTotem && !isTotemHeld) {
+            totem.transform.SetParent(this.transform);
+            totem.GetComponent<Rigidbody2D>().rotation = 0f;
+            totem.GetComponent<Rigidbody2D>().velocity = new Vector2();
+            totem.transform.localPosition = totemSitPoint.transform.localPosition;
+            isTotemHeld = true;
+        }
+
+        if (isTotemHeld) {
+            totem.GetComponent<Rigidbody2D>().rotation = 0f;
+            totem.GetComponent<Rigidbody2D>().velocity = new Vector2();
+            totem.transform.localPosition = totemSitPoint.transform.localPosition;
         }
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - PlatformDisabled
+  - Totem
   layers:
   - Default
   - TransparentFX
