@@ -19,6 +19,12 @@ public class PlatformSpawner : MonoBehaviour
     float topThreshold;
 
     [SerializeField]
+    float botStreakAdd;
+
+    [SerializeField]
+    float topStreakAdd;
+
+    [SerializeField]
     GameObject pTopPlatformChunk;
 
     [SerializeField]
@@ -26,7 +32,8 @@ public class PlatformSpawner : MonoBehaviour
 
     private GameObject movingWrapper;
     private float halfUnitTimer;
-
+    private bool lastSpawnedBottom = false;
+    private bool lastSpawnedTop = false;
     private void Start() {
         movingWrapper = GameObject.Find("MovingWrapper");
         halfUnitTimer = 0f;
@@ -36,7 +43,7 @@ public class PlatformSpawner : MonoBehaviour
 
     private void Update() {
         halfUnitTimer += movingWrapper.GetComponent<PlatformMover>().speed * Time.deltaTime;
-        if (halfUnitTimer >= 4.95f) {
+        if (halfUnitTimer >= 9.99f) {
             SpawnNewPlatforms();
             halfUnitTimer = 0f;
             xcoord++;
@@ -44,17 +51,28 @@ public class PlatformSpawner : MonoBehaviour
     }
 
     private void SpawnNewPlatforms() {
-        bool topSpawn = Random.Range(0f, 1f) > topThreshold;
-        bool botSpawn = Random.Range(0f, 1f) > bottomThreshold;
+        float topSpawn = Random.Range(0f, 1f);
+        float botSpawn = Random.Range(0f, 1f);
+        if (lastSpawnedBottom) { botSpawn += botStreakAdd; }
         //Debug.Log(xcoord + " " +topSpawn + " " + botSpawn + " " + Mathf.PerlinNoise(xcoord/100, 1/100) + " " + Mathf.PerlinNoise(xcoord / 100, -1/100));
-        if (topSpawn) {
-            Instantiate(pTopPlatformChunk, new Vector2(this.transform.position.x, yTop), 
-                new Quaternion(), movingWrapper.transform);
-        }
+        
 
-        if (botSpawn) {
+        if (botSpawn > bottomThreshold) {
             Instantiate(pBtmPlatformChunk, new Vector2(this.transform.position.x, yBot),
                 new Quaternion(), movingWrapper.transform);
+            lastSpawnedBottom = true;
+
+        } else {
+            lastSpawnedBottom = false;
+        }
+
+        if (lastSpawnedTop) { topSpawn += topStreakAdd; }
+        if (topSpawn > topThreshold) {
+            Instantiate(pTopPlatformChunk, new Vector2(this.transform.position.x, yTop),
+                new Quaternion(), movingWrapper.transform);
+            lastSpawnedTop = true;
+        } else {
+            lastSpawnedTop = false;
         }
     }
 }

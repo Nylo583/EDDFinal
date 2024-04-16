@@ -13,10 +13,6 @@ public class PlayerMovement : MonoBehaviour
         canInteractWithTotem, isTotemHeld,
         canShoot;
 
-    
-
-    
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -116,14 +112,16 @@ public class PlayerMovement : MonoBehaviour
         //Debug.Log(dist);
         canInteractWithTotem = dist <= totemInteractRadius;
 
-        if (Input.GetKeyDown(KeyCode.Mouse0) && isTotemHeld) {
+        if (Input.GetKeyDown(KeyCode.Mouse1) && isTotemHeld) {
             isTotemHeld = false;
+            canShoot = true;
             totem.transform.SetParent(null, true);
             ThrowTotem();
             lineRenderer.enabled = false;
         }
-        if (Input.GetKeyDown(KeyCode.E) && isTotemHeld) {
+        if (Input.GetKeyDown(KeyCode.Q) && isTotemHeld) {
             isTotemHeld = false;
+            canShoot = true;
             totem.transform.SetParent(null, true);
             lineRenderer.enabled = false;
         }
@@ -133,6 +131,7 @@ public class PlayerMovement : MonoBehaviour
             totem.GetComponent<Rigidbody2D>().velocity = new Vector2();
             totem.transform.localPosition = totemSitPoint.transform.localPosition;
             isTotemHeld = true;
+            canShoot = false;
             lineRenderer.enabled = true;
         }
 

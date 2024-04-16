@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 362449647
   m_SortingLayer: 1
   m_SortingOrder: -35
-  m_Sprite: {fileID: 21300000, guid: e682b3c1737f1e4418bc596c55c958bf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c27605750671c7b4899260923cd76006, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,14 +125,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 56.25}
+    oldSize: {x: 10, y: 56.25}
     newSize: {x: 0.5, y: 5.625}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 2}
+  m_Size: {x: 10, y: 2}
   m_EdgeRadius: 0
 --- !u!251 &1019699951520805646
 PlatformEffector2D:
@@ -142,7 +142,7 @@ PlatformEffector2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3975431255987734005}
   m_Enabled: 1
-  m_UseColliderMask: 1
+  m_UseColliderMask: 0
   m_ColliderMask:
     serializedVersion: 2
     m_Bits: 4294967295
