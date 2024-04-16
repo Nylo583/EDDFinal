@@ -703,6 +703,37 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2faafe87fe02424897b13e63756b3f6, type: 3}
+--- !u!1 &1219703882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1219703883}
+  m_Layer: 0
+  m_Name: MiniBullet
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1219703883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219703882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -24.260172, y: -19.098766, z: 0.14726634}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1274981339
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1137,10 +1168,6 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6125847608417868197, guid: a21c1ca3998b95c40a98054a06e24844, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125847608417868197, guid: a21c1ca3998b95c40a98054a06e24844, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.9
       objectReference: {fileID: 0}
@@ -1183,30 +1210,6 @@ PrefabInstance:
     - target: {fileID: 6125847608417868201, guid: a21c1ca3998b95c40a98054a06e24844, type: 3}
       propertyPath: m_Name
       value: Totem
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125847608417868202, guid: a21c1ca3998b95c40a98054a06e24844, type: 3}
-      propertyPath: m_Size.x
-      value: 2.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125847608417868202, guid: a21c1ca3998b95c40a98054a06e24844, type: 3}
-      propertyPath: m_Size.y
-      value: 4.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125847608417868202, guid: a21c1ca3998b95c40a98054a06e24844, type: 3}
-      propertyPath: m_EdgeRadius
-      value: 0.39
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125847608417868203, guid: a21c1ca3998b95c40a98054a06e24844, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 5647e59a1a27e6a4ab6a6ca7dec69ff7, type: 2}
-    - target: {fileID: 6125847608417868203, guid: a21c1ca3998b95c40a98054a06e24844, type: 3}
-      propertyPath: m_LinearDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6125847608417868203, guid: a21c1ca3998b95c40a98054a06e24844, type: 3}
-      propertyPath: m_AngularDrag
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a21c1ca3998b95c40a98054a06e24844, type: 3}

@@ -147,9 +147,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolSpeed: 12
-  dashSpeed: 50
+  dashSpeed: 150
   dashWindup: 0.5
-  dashTime: 0.75
+  dashTime: 0.25
   dashTimeout: 0.2
   patrolSprite: {fileID: 21300000, guid: 3a2282ef4dc0e6147bede10d131bf397, type: 3}
   dashSprite: {fileID: 21300000, guid: 0b0ddc40755b5194fa8c1082e7e9c7b7, type: 3}
