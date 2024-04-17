@@ -64,9 +64,9 @@ public class PlayerMovement : MonoBehaviour
     private void Walk() {
         float hInput = Input.GetAxis("Horizontal");
         if (Mathf.Abs(hInput) > deadzone && isMoveable) {
-            rb.velocity = new Vector2(hInput * walkSpeed - platformMover.speed, rb.velocity.y);
+            rb.velocity = new Vector2(hInput * walkSpeed - platformMover.speed/2, rb.velocity.y);
         } else if (Mathf.Abs(hInput) <= deadzone) {
-            rb.velocity = new Vector2(-platformMover.speed, rb.velocity.y);
+            rb.velocity = new Vector2(-platformMover.speed/2, rb.velocity.y);
         }
     }
 
@@ -90,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void ModulateGravity() {
         if (isInAir) { 
-            if (Input.GetKey(KeyCode.Space) && rb.velocity.y >= 0.2f) {
+            if (!isInAir || (Input.GetKey(KeyCode.Space) && rb.velocity.y >= 0.2f)) {
                 rb.gravityScale = 1;
             } else {
                 rb.gravityScale = 2.25F;
@@ -144,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
         } else {
             if (Mathf.Abs(totem.GetComponent<Rigidbody2D>().velocity.magnitude) < platformMover.speed) {
                 totem.GetComponent<Rigidbody2D>().velocity = new Vector2(- platformMover.speed,
-                    Physics2D.gravity.y);
+                    totem.GetComponent<Rigidbody2D>().velocity.y);
             }
         }
     }

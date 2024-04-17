@@ -8,7 +8,7 @@ public class BaseBullet : MonoBehaviour
     private float directionRads;
     private float speed;
     public float damage;
-
+    public bool canSpawnMoreBullets;
     private Rigidbody2D rb;
     private GameObject effectContainer;
 
@@ -31,34 +31,34 @@ public class BaseBullet : MonoBehaviour
             collision.gameObject.GetComponent<HealthComponent>().RemoveHealth(damage);
             OnBulletHit();
             OnBulletDestroy();
-            Destroy(this.gameObject);
         } else if (collision.gameObject.tag == "Platform") {
             OnBulletDestroy();
-            Destroy(this.gameObject);
         }
     }
 
     void OnBulletSpawn() {
-        foreach(EffectInterface effect in effectContainer.GetComponents<MonoBehaviour>()) {
+        foreach(Effect effect in effectContainer.GetComponents<MonoBehaviour>()) {
             effect.OnBulletSpawn(this.gameObject);
         }
     }
 
     void OnBulletTravel() {
-        foreach (EffectInterface effect in effectContainer.GetComponents<MonoBehaviour>()) {
+        foreach (Effect effect in effectContainer.GetComponents<MonoBehaviour>()) {
             effect.OnBulletTravel(this.gameObject);
         }
     }
 
     void OnBulletHit() {
-        foreach (EffectInterface effect in effectContainer.GetComponents<MonoBehaviour>()) {
+        foreach (Effect effect in effectContainer.GetComponents<MonoBehaviour>()) {
             effect.OnBulletHit(this.gameObject);
         }
     }
 
     void OnBulletDestroy() {
-        foreach (EffectInterface effect in effectContainer.GetComponents<MonoBehaviour>()) {
+        foreach (Effect effect in effectContainer.GetComponents<MonoBehaviour>()) {
             effect.OnBulletDestroy(this.gameObject);
         }
+
+        Destroy(this.gameObject);
     }
 }

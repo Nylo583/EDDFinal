@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9087910936167655717}
   - component: {fileID: 8842203265984883768}
+  - component: {fileID: 769859744353583961}
   m_Layer: 0
   m_Name: EffectContainer
   m_TagString: Untagged
@@ -45,6 +46,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pctHeal: 0.3
+--- !u!114 &769859744353583961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3099164701260034542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b24c89c40a8c04b8e5310c81aea154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  speed: 30
+  numBullets: 5
+  delay: 0.2
+  pMiniBullet: {fileID: 5704426540779093650, guid: d967ffb837c0f0644874a2565a0a53b0, type: 3}
 --- !u!1 &7050369421234625271
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attacksPerSecond: 8
-  damage: 10
-  bulletSpeed: 50
+  damage: 1000
+  bulletSpeed: 75
   effectContainer: {fileID: 3099164701260034542}
   pBaseBullet: {fileID: 4621584667983341335, guid: 26a6d1511c004d7419f3ac85c94e837f, type: 3}
