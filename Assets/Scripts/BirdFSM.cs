@@ -46,7 +46,7 @@ public class BirdFSM : MonoBehaviour
         isDashing = false;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
+        //UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
         target = null;
     }
 

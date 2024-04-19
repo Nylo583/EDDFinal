@@ -64,9 +64,9 @@ public class PlayerMovement : MonoBehaviour
     private void Walk() {
         float hInput = Input.GetAxis("Horizontal");
         if (Mathf.Abs(hInput) > deadzone && isMoveable) {
-            rb.velocity = new Vector2(hInput * walkSpeed - platformMover.speed/2, rb.velocity.y);
+            rb.velocity = new Vector2(hInput * walkSpeed - platformMover.speed, rb.velocity.y);
         } else if (Mathf.Abs(hInput) <= deadzone) {
-            rb.velocity = new Vector2(-platformMover.speed/2, rb.velocity.y);
+            rb.velocity = new Vector2(-platformMover.speed, rb.velocity.y);
         }
     }
 
