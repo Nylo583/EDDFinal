@@ -138,6 +138,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 25
+  healthBarAssociated: {fileID: 0}
+  baseScoreValue: 3
 --- !u!114 &2492052892073970490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,3 +161,5 @@ MonoBehaviour:
   pBullet: {fileID: 1732161600198051469, guid: 1a323635944c1b84fba3e02e794d3908, type: 3}
   fireDelay: 0.75
   fireTimeout: 5
+  bulletSpeed: 25
+  bulletDmg: 3

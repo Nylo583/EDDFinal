@@ -58,7 +58,7 @@ public class PlatformSpawner : MonoBehaviour
         
 
         if (botSpawn > bottomThreshold) {
-            Instantiate(pBtmPlatformChunk, new Vector2(this.transform.position.x, yBot),
+            Instantiate(pBtmPlatformChunk, new Vector2(this.transform.position.x, this.transform.position.y + yBot),
                 new Quaternion(), movingWrapper.transform);
             lastSpawnedBottom = true;
 
@@ -68,7 +68,7 @@ public class PlatformSpawner : MonoBehaviour
 
         if (lastSpawnedTop) { topSpawn += topStreakAdd; }
         if (topSpawn > topThreshold) {
-            Instantiate(pTopPlatformChunk, new Vector2(this.transform.position.x, yTop),
+            Instantiate(pTopPlatformChunk, new Vector2(this.transform.position.x, this.transform.position.y + yTop),
                 new Quaternion(), movingWrapper.transform);
             lastSpawnedTop = true;
         } else {

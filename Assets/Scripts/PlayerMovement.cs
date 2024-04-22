@@ -40,14 +40,14 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.tag.Equals("Platform")) {
+        if (collision.tag.Equals("Platform") || collision.tag.Equals("WorldPlatform")) {
             isInAir = false;
             currentJumps = maxJumps;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
-        if (collision.tag.Equals("Platform")) {
+        if (collision.tag.Equals("Platform") || collision.tag.Equals("WorldPlatform")) {
             isInAir = true;
         }
     }

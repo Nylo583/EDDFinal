@@ -31,7 +31,7 @@ public class BaseBullet : MonoBehaviour
             collision.gameObject.GetComponent<HealthComponent>().RemoveHealth(damage);
             OnBulletHit();
             OnBulletDestroy();
-        } else if (collision.gameObject.tag == "Platform") {
+        } else if (collision.gameObject.tag == "WorldPlatform") {
             OnBulletDestroy();
         }
     }

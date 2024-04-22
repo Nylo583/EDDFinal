@@ -31,9 +31,17 @@ public class BirdTriggerHandler : MonoBehaviour
     private void Update() {
         Collider2D[] cols = Physics2D.OverlapCircleAll(this.transform.position, radius);
         foreach (Collider2D collision in cols) {
-            if ((collision.gameObject.tag == "Player" || collision.gameObject.tag == "Totem") && !bfsm.isDashing) {
+            if ((collision.gameObject.tag == "Player" || collision.gameObject.tag == "Totem") && !bfsm.isDashing 
+                && this.transform.parent.gameObject.GetComponent<Renderer>().isVisible) {
                 Debug.Log("Hit " + collision.gameObject.tag);
                 bfsm.SetTargetAndDash(collision.gameObject);
+            }
+        }
+        cols = Physics2D.OverlapCircleAll(this.transform.position, 2.9f);
+        foreach (Collider2D collision in cols) {
+            if ((collision.gameObject.tag == "Player" || collision.gameObject.tag == "Totem") && !bfsm.hasDamagedThisDash && bfsm.isDashing) {
+                bfsm.hasDamagedThisDash = true;
+                collision.gameObject.GetComponent<HealthComponent>().RemoveHealth(bfsm.dmg);
             }
         }
     }

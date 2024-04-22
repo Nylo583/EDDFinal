@@ -9,16 +9,30 @@ public class HealthComponent : MonoBehaviour
 
     float health;
 
+    #nullable enable
+    [SerializeField]
+    GameObject? healthBarAssociated;
+    #nullable disable
+
+    [SerializeField]
+    float baseScoreValue = 0;
+    WorldVariables wv;
     private void Start() {
         health = maxHealth;
+        wv = GameObject.Find("WorldVariables").GetComponent<WorldVariables>();
     }
 
     private void Update() {
         if (health <= 0) {
+            wv.AddScore(baseScoreValue * wv.difficulty);
             Destroy(gameObject);
         }
 
         health = Mathf.Min(health, maxHealth);
+
+        if (healthBarAssociated != null) {
+            healthBarAssociated.GetComponent<HealthBar>().ModulateFill(health/maxHealth);
+        }
     }
 
     public void AddHealth(float add) {

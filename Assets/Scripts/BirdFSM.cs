@@ -29,8 +29,11 @@ public class BirdFSM : MonoBehaviour
     [SerializeField]
     Sprite dashSprite;
 
+    [SerializeField]
+    public float dmg;
+
     
-    public bool canPatrol, canDash, isDashing;
+    public bool canPatrol, canDash, isDashing, hasDamagedThisDash;
     private Rigidbody2D rb;
     private SpriteRenderer sr;
 
@@ -39,8 +42,8 @@ public class BirdFSM : MonoBehaviour
     #nullable disable
 
     private void Start() {
-        minBounds = new Vector2(-25f, -25f);
-        maxBounds = new Vector2(25f, 25f);
+        minBounds = new Vector2(-177f, 153f);
+        maxBounds = new Vector2(-89f, 239f);
         canPatrol = true;
         canDash = false;
         isDashing = false;
@@ -48,6 +51,7 @@ public class BirdFSM : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         //UnityEngine.Random.InitState((int)DateTime.Now.Ticks);
         target = null;
+        hasDamagedThisDash = false;
     }
 
     private void Update() {
@@ -111,6 +115,7 @@ public class BirdFSM : MonoBehaviour
         yield return new WaitForSeconds(dashTimeout);
         canPatrol = true;
         isDashing = false;
+        hasDamagedThisDash = false;
         yield break;
     }
 }

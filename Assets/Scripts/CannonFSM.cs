@@ -30,6 +30,12 @@ public class CannonFSM : MonoBehaviour
     [SerializeField]
     float fireTimeout;
 
+    [SerializeField]
+    float bulletSpeed;
+
+    [SerializeField]
+    float bulletDmg;
+
     private GameObject player, totem, closest;
     private float theta;
     private bool isAtRadius;
@@ -80,6 +86,9 @@ public class CannonFSM : MonoBehaviour
             targetDir = ((new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), 0) * patrolRadius) + closest.transform.position - this.transform.position).normalized;
             targetVelocity = targetDir * patrolSpeed / 1.5f;
         } else {
+            if (distance < patrolRadius) {
+                canShoot = true;
+            }
             float mult = Vector2.Distance(this.transform.position, closest.transform.position) > patrolRadius ? 1 : -1;
             targetDir = mult * (closest.transform.position - this.transform.position).normalized;
             targetVelocity = targetDir * patrolSpeed;
@@ -98,7 +107,9 @@ public class CannonFSM : MonoBehaviour
         isShooting = true;
         yield return new WaitForSeconds(fireDelay);
         Vector3 direction = (closest.transform.position - this.transform.position).normalized;
+        float rads = Mathf.Atan2(direction.y, direction.x);
         GameObject inst = Instantiate(pBullet, this.transform.position, this.transform.rotation, GameObject.Find("BulletContainer").transform);
+        inst.GetComponent<EnemyBullet>().Init(rads, bulletSpeed, bulletDmg);
         rb.velocity = -direction * 45;
         while (rb.velocity.magnitude > 2f) {
             yield return new WaitForSeconds(.2f);
