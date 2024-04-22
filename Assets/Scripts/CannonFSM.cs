@@ -96,7 +96,7 @@ public class CannonFSM : MonoBehaviour
         rb.position += Time.deltaTime * new Vector2(targetVelocity.x, targetVelocity.y);
         //yield break;
 
-        Debug.DrawRay(this.transform.position, targetVelocity, Color.red, .25f);
+        //Debug.DrawRay(this.transform.position, targetVelocity, Color.red, .25f);
     }
 
 
