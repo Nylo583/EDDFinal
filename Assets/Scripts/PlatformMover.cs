@@ -12,7 +12,7 @@ public class PlatformMover : MonoBehaviour
 
     private void Update() {
         speed = baseSpeed * GameObject.Find("WorldVariables").GetComponent<WorldVariables>().difficulty / 4;
-        speed = Mathf.Clamp(speed, 0, 10);
+        speed = Mathf.Clamp(speed, 0, 5);
         foreach (Transform child in this.transform) {
             child.gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(-speed, child.gameObject.GetComponent<Rigidbody2D>().velocity.y);
         }

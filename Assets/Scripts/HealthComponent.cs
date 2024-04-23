@@ -12,6 +12,9 @@ public class HealthComponent : MonoBehaviour
     #nullable enable
     [SerializeField]
     GameObject? healthBarAssociated;
+
+    [SerializeField]
+    SceneLoader? sceneLoader;
     #nullable disable
 
     [SerializeField]
@@ -25,7 +28,8 @@ public class HealthComponent : MonoBehaviour
     private void Update() {
         if (health <= 0) {
             wv.AddScore(baseScoreValue * wv.difficulty);
-            Destroy(gameObject);
+            if (sceneLoader != null) { sceneLoader.LoadScene("DeathMenu"); }
+            else { Destroy(gameObject); }
         }
 
         health = Mathf.Min(health, maxHealth);

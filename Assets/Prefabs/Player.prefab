@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 9200554335946003103}
   - component: {fileID: 9200554335946003107}
   - component: {fileID: 7035450832000348429}
+  - component: {fileID: 9074783950393465523}
   - component: {fileID: 9200554335946003100}
   - component: {fileID: 2205943342106788344}
   - component: {fileID: 8782484332948155741}
@@ -186,6 +187,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  healthBarAssociated: {fileID: 0}
+  sceneLoader: {fileID: 9074783950393465523}
+  baseScoreValue: 0
+--- !u!114 &9074783950393465523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9200554335946003102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d0fb6cbb67e244db068cd6405f7259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!70 &9200554335946003100
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -257,7 +273,7 @@ LineRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -932321091
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 67
   m_Positions:
   - {x: 0, y: 0, z: 0}
