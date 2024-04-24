@@ -39,23 +39,25 @@ public class EnemySpawner : MonoBehaviour
         int numCannons = Mathf.RoundToInt(numEnemies * pctCannon);
         int numBirds = numEnemies - numCannons;
         Debug.Log(pctCannon + " " +  numEnemies);
+        float x = UnityEngine.Random.Range(50f, 65f);
+        float y = UnityEngine.Random.Range(50f, 65f);
+        float modX = UnityEngine.Random.value < .5 ? -1 : 1;
+        float modY = UnityEngine.Random.value < .5 ? -1 : 1;
+
         for (int i = 0; i < numCannons; i++)
         {
             GameObject enemy = Instantiate(pCannon, this.transform);
-            float x = UnityEngine.Random.Range(50f, 65f);
-            float y = UnityEngine.Random.Range(50f, 65f);
-            float modX = UnityEngine.Random.value < .5 ? -1 : 1;
-            float modY = UnityEngine.Random.value < .5 ? -1 : 1;
             enemy.transform.localPosition = new Vector2(x * modX, y * modY);
             yield return new WaitForSeconds(.5f);
         }
+
+        x = UnityEngine.Random.Range(50f, 65f);
+        y = UnityEngine.Random.Range(50f, 65f);
+        modX = UnityEngine.Random.value < .5 ? -1 : 1;
+        modY = UnityEngine.Random.value < .5 ? -1 : 1;
         for (int i = 0; i < numBirds; i++)
         {
             GameObject enemy = Instantiate(pBird, this.transform);
-            float x = UnityEngine.Random.Range(50f, 65f);
-            float y = UnityEngine.Random.Range(50f, 65f);
-            float modX = UnityEngine.Random.value < .5 ? -1 : 1;
-            float modY = UnityEngine.Random.value < .5 ? -1 : 1;
             enemy.transform.localPosition = new Vector2(x*modX, y*modY);
             yield return new WaitForSeconds(.5f);
         }
