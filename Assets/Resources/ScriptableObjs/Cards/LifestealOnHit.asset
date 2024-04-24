@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b06be5f8391a67419ae38b3155ae051, type: 3}
-  m_Name: Test 1
+  m_Script: {fileID: 11500000, guid: 6450a2f6986415744950208c0edf2f27, type: 3}
+  m_Name: LifestealOnHit
   m_EditorClassIdentifier: 
-  effect: {fileID: 0}
-  data: 2,1,3/1,1,1/5,2,1
+  image: {fileID: 21300000, guid: 5189826541f5a264a8aa83a2ad78bfe6, type: 3}
+  nameText: Bloodthirst
+  descriptionText: Heals for # of all damage dealt.
+  args:
+  - 0.69
+  isPercent: 01

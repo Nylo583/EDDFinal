@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8177964568566826981}
   - component: {fileID: 5548332796600521266}
   - component: {fileID: 6739221910618560937}
+  - component: {fileID: 6810509389644977736}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -25,8 +26,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2464935964481094884}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -129.26277, y: 196.76396, z: 1.152699}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1.152699}
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -101,12 +102,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   card: {fileID: 0}
+  effectData: {fileID: 0}
   imageRenderer: {fileID: 1797373830351723038}
   nameText: {fileID: 1318729890302710895}
   descriptionText: {fileID: 6788629729165868816}
   args: []
   isPercent: 
   desc: 
+--- !u!61 &6810509389644977736
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2464935964481094884}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 40, y: 71.25}
+    newSize: {x: 40, y: 71.25}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 40, y: 71.25}
+  m_EdgeRadius: 0
 --- !u!1 &4663642932082751861
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,8 +518,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 31.4
-  m_fontSizeBase: 31.4
+  m_fontSize: 35.21
+  m_fontSizeBase: 35.21
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

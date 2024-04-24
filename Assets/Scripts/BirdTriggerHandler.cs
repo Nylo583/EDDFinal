@@ -33,7 +33,7 @@ public class BirdTriggerHandler : MonoBehaviour
         foreach (Collider2D collision in cols) {
             if ((collision.gameObject.tag == "Player" || collision.gameObject.tag == "Totem") && !bfsm.isDashing 
                 && this.transform.parent.gameObject.GetComponent<Renderer>().isVisible) {
-                Debug.Log("Hit " + collision.gameObject.tag);
+                //Debug.Log("Hit " + collision.gameObject.tag);
                 bfsm.SetTargetAndDash(collision.gameObject);
             }
         }

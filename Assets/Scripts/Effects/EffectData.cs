@@ -5,9 +5,9 @@ using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New EffectData", menuName = "EffectData")]
-public class EffectData : ScriptableObject
+public class EffectData : ScriptableObject, ICloneable
 {
-    public Effect effect;
+    public string effect;
     public string data;
     public float[][] valuesPerRarity;
 
@@ -22,5 +22,17 @@ public class EffectData : ScriptableObject
             vals[i] = Array.ConvertAll(data.Split("/")[i].Split(","), float.Parse);
         }
         return vals;
+    }
+
+
+    public EffectData(string e, string d, float[][] vpr) {
+        effect = e;
+        data = d;
+        valuesPerRarity = vpr;
+        parseData();
+    }
+
+    public object Clone() {
+        return new EffectData(effect, data, valuesPerRarity);
     }
 }

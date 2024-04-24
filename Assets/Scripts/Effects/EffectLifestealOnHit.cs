@@ -6,7 +6,7 @@ public class EffectLifestealOnHit : Effect
 {
     public float pctHeal;
 
-    public override void Init(params object[] args) {
+    public override void Init(float[] args) {
         pctHeal = (float)args[0];
     }
 

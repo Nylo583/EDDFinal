@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class Effect : MonoBehaviour
 {
-    public abstract void Init(params object[] args);
+    public abstract void Init(float[] args);
     public virtual void OnBulletSpawn(GameObject target) { }
     public virtual void OnBulletTravel(GameObject target) { }
     public virtual void OnBulletHit(GameObject target) { }

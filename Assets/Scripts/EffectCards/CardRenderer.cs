@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,6 +7,7 @@ using UnityEngine;
 public class CardRenderer : MonoBehaviour
 {
     public Card card;
+    public EffectData effectData;
     public SpriteRenderer imageRenderer;
     public TMP_Text nameText;
     public TMP_Text descriptionText;
@@ -14,18 +16,22 @@ public class CardRenderer : MonoBehaviour
 
     public string desc;
 
-    private void OnEnable() {
+    public void Render() {
         imageRenderer.sprite = card.image;
         nameText.text = card.nameText;
         desc = card.descriptionText;
         args = card.args;
         isPercent = card.isPercent;
+        UpdateCard();
+    }
+
+    void UpdateCard() {
         bool edited = false;
         for (int j = 0; j < args.Length; j++) {
             int limit = desc.Length;
             edited = false;
             for (int i = 0; i < limit; i++) {
-                Debug.Log(j + " " + i + " " + desc.Length);
+                //Debug.Log(j + " " + i + " " + desc.Length);
                 if (!edited) {
                     if (desc[i] == '#') {
 
@@ -42,11 +48,19 @@ public class CardRenderer : MonoBehaviour
                         desc = desc.Substring(0, i) + build + desc.Substring(i);
                         edited = true;
                     }
-                } 
+                }
             }
         }
 
-        Debug.Log(desc);
+        //Debug.Log(desc);
         descriptionText.text = desc;
+    }
+
+    private void OnMouseDown() {
+        GameObject effectContainer = GameObject.Find("EffectContainer");
+
+        Effect effect = effectContainer.AddComponent(Type.GetType(effectData.effect)) as Effect;
+        effect.Init(card.args);
+        this.transform.parent.parent.GetComponent<CardGenSelect>().DestroyOverlay();
     }
 }

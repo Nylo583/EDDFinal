@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
         int numEnemies = Mathf.Max(1, Mathf.RoundToInt(wv.difficulty * .25f));
         int numCannons = Mathf.RoundToInt(numEnemies * pctCannon);
         int numBirds = numEnemies - numCannons;
-        Debug.Log(pctCannon + " " +  numEnemies);
+        //Debug.Log(pctCannon + " " +  numEnemies);
         float x = UnityEngine.Random.Range(50f, 65f);
         float y = UnityEngine.Random.Range(50f, 65f);
         float modX = UnityEngine.Random.value < .5 ? -1 : 1;
