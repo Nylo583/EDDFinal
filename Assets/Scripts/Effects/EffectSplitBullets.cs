@@ -24,6 +24,14 @@ public class EffectSplitBullets : Effect
         }
     }
 
+    public override bool Consolidate(float[] args)
+    {
+        this.numBullets += args[0];
+        this.damage += args[1];
+
+        return true;
+    }
+
     private void SpawnBullets(GameObject target, Vector3 spawnPt, float snapshotRads) {
         for (int i = 0; i < numBullets; i++) {
             GameObject inst = Instantiate(pMiniBullet, spawnPt, new Quaternion(), GameObject.Find("BulletContainer").transform);

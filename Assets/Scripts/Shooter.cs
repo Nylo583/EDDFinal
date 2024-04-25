@@ -9,7 +9,7 @@ public class Shooter : MonoBehaviour
     float attacksPerSecond;
 
     [SerializeField]
-    float damage;
+    public float damage;
 
     [SerializeField]
     float bulletSpeed;

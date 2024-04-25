@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -58,9 +59,18 @@ public class CardRenderer : MonoBehaviour
 
     private void OnMouseDown() {
         GameObject effectContainer = GameObject.Find("EffectContainer");
+        bool didConsolidate = false;
+        if (effectContainer.GetComponents(Type.GetType(effectData.effect)).Count() > 0)
+        {
+            didConsolidate = (effectContainer.GetComponent(Type.GetType(effectData.effect)) as Effect).Consolidate(card.args);
+        }
 
-        Effect effect = effectContainer.AddComponent(Type.GetType(effectData.effect)) as Effect;
-        effect.Init(card.args);
+        if (!didConsolidate)
+        {
+            Effect effect = effectContainer.AddComponent(Type.GetType(effectData.effect)) as Effect;
+            effect.Init(card.args);
+        }
+        
         this.transform.parent.parent.GetComponent<CardGenSelect>().DestroyOverlay();
     }
 }

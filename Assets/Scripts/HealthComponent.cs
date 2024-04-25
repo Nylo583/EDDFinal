@@ -5,9 +5,9 @@ using UnityEngine;
 public class HealthComponent : MonoBehaviour
 {
     [SerializeField]
-    float maxHealth;
+    public float maxHealth;
 
-    float health;
+    public float health;
 
     #nullable enable
     [SerializeField]
@@ -49,5 +49,15 @@ public class HealthComponent : MonoBehaviour
 
     public float GetHealth() {
         return health;
+    }
+
+    public void SetMaxHealth(float max)
+    {
+        maxHealth = max;
+    }
+
+    public void SetHealth(float val)
+    {
+        health = val;
     }
 }

@@ -10,4 +10,7 @@ public abstract class Effect : MonoBehaviour
     public virtual void OnBulletTravel(GameObject target) { }
     public virtual void OnBulletHit(GameObject target) { }
     public virtual void OnBulletDestroy(GameObject target) { }
+
+    public virtual bool Consolidate(Effect other) { return false; }
+    public virtual bool Consolidate(float[] args) { return false; }
 }

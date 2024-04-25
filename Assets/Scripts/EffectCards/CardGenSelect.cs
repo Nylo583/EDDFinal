@@ -28,7 +28,7 @@ public class CardGenSelect : MonoBehaviour
                                 new Color(194f/255, 77f/255, 1, 1),
                                 new Color(1, 216f/255, 77f/255, 1)};
 
-    UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
+        UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
         cardTable = Resources.LoadAll<Card>("ScriptableObjs/Cards");
         effectDataTable = Resources.LoadAll<EffectData>("ScriptableObjs/EffectDatas");
         //Debug.Log(cardTable.Length);
@@ -40,6 +40,12 @@ public class CardGenSelect : MonoBehaviour
     }
 
     private void OnEnable() {
+        
+    }
+
+    public void CreateOverlay()
+    {
+        UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
         Time.timeScale = 0f;
         GameObject.Find("Canvas").GetComponent<CanvasGroup>().alpha = 0f;
         CreateRandomCard(leftTransform);
