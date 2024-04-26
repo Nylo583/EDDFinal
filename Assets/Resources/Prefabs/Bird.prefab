@@ -192,7 +192,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 30
+  health: 0
   healthBarAssociated: {fileID: 0}
+  sceneLoader: {fileID: 0}
+  canDropFragment: 1
   baseScoreValue: 5
 --- !u!58 &1844675736314503258
 CircleCollider2D:

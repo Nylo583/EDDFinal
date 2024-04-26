@@ -13,11 +13,11 @@ public class EffectHealthBonus : Effect
         HealthComponent totemHealth = GameObject.Find("Totem").GetComponent<HealthComponent>();
 
         float playerPct = playerHealth.health / playerHealth.maxHealth;
-        playerHealth.SetMaxHealth(pctBonus*playerHealth.maxHealth);
+        playerHealth.SetMaxHealth((1 +pctBonus)*playerHealth.maxHealth);
         playerHealth.SetHealth(playerPct*playerHealth.maxHealth);
 
         float totemPct = totemHealth.health / totemHealth.maxHealth;
-        totemHealth.SetMaxHealth(pctBonus * totemHealth.maxHealth);
+        totemHealth.SetMaxHealth((1+ pctBonus) * totemHealth.maxHealth);
         totemHealth.SetHealth(totemPct*totemHealth.maxHealth);
     }
 

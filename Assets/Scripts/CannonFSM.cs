@@ -82,7 +82,7 @@ public class CannonFSM : MonoBehaviour
             //Debug.DrawRay(this.transform.position, targetVelocity, Color.blue, .25f);
             theta = Mathf.Atan2(this.transform.position.y - closest.transform.position.y,
                 this.transform.position.x - closest.transform.position.x) + .02f;
-            Debug.Log(theta);
+            //Debug.Log(theta);
             targetDir = ((new Vector3(Mathf.Cos(theta), Mathf.Sin(theta), 0) * patrolRadius) + closest.transform.position - this.transform.position).normalized;
             targetVelocity = targetDir * patrolSpeed / 1.5f;
         } else {
