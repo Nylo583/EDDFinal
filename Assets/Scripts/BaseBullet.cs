@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseBullet : MonoBehaviour
+public class BaseBullet : Bullet
 {
-
-    private float directionRads;
-    private float speed;
-    public float damage;
-    public bool canSpawnMoreBullets;
     private Rigidbody2D rb;
-    private GameObject effectContainer;
+    public GameObject effectContainer;
 
-    public void Init(float dirRads, float spd, float dmg, GameObject effects) {
+    public override void Init(float dirRads, float spd, float dmg, GameObject effects) {
         directionRads = dirRads;
         speed = spd;
         damage = dmg;

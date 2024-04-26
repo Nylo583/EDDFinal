@@ -18,10 +18,11 @@ public class EffectSplitBullets : Effect
     }
 
     public override void OnBulletDestroy(GameObject target) {
-        if (target.GetComponent<BaseBullet>().canSpawnMoreBullets) { 
+        if (target.GetComponent<Bullet>().canSpawnMoreBullets) {
             Rigidbody2D targetRb = target.GetComponent<Rigidbody2D>();
             SpawnBullets(target, target.transform.position - new Vector3(targetRb.velocity.x * .025f, targetRb.velocity.y * .025f), Mathf.Atan2(targetRb.velocity.y, targetRb.velocity.x));
         }
+        
     }
 
     public override bool Consolidate(float[] args)
@@ -35,7 +36,7 @@ public class EffectSplitBullets : Effect
     private void SpawnBullets(GameObject target, Vector3 spawnPt, float snapshotRads) {
         for (int i = 0; i < numBullets; i++) {
             GameObject inst = Instantiate(pMiniBullet, spawnPt, new Quaternion(), GameObject.Find("BulletContainer").transform);
-            inst.GetComponent<BaseBullet>().Init((2*Mathf.PI*i/numBullets) + snapshotRads + (Mathf.PI/2), speed, damage * target.gameObject.GetComponent<BaseBullet>().damage, this.gameObject);
+            inst.GetComponent<Bullet>().Init((2*Mathf.PI*i/numBullets) + snapshotRads + (Mathf.PI/2), speed, damage * target.gameObject.GetComponent<Bullet>().damage, this.gameObject);
         }
     }
 }

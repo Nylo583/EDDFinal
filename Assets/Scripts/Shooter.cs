@@ -19,7 +19,7 @@ public class Shooter : MonoBehaviour
     [SerializeField]
     private GameObject effectContainer;
     [SerializeField]
-    private GameObject pBaseBullet;
+    public GameObject pBaseBullet;
     private GameObject bulletContainer;
 
     private PlayerMovement pm;
@@ -48,7 +48,7 @@ public class Shooter : MonoBehaviour
             GameObject bullet = Instantiate(pBaseBullet);
             bullet.transform.position = this.gameObject.transform.position;
             bullet.transform.parent = bulletContainer.transform;
-            bullet.GetComponent<BaseBullet>().Init(angle, bulletSpeed, damage, effectContainer);
+            bullet.GetComponent<Bullet>().Init(angle, bulletSpeed, damage, effectContainer);
         }
     }
 }

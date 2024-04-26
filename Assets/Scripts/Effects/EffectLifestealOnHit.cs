@@ -11,7 +11,7 @@ public class EffectLifestealOnHit : Effect
     }
 
     public override void OnBulletHit(GameObject target) {
-        float heal = pctHeal * target.gameObject.GetComponent<BaseBullet>().damage;
+        float heal = pctHeal * target.gameObject.GetComponent<Bullet>().damage;
         GameObject.Find("Player").GetComponent<HealthComponent>().AddHealth(heal);
     }
 }
