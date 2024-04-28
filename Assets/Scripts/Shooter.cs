@@ -6,7 +6,7 @@ using UnityEngine;
 public class Shooter : MonoBehaviour
 {
     [SerializeField]
-    float attacksPerSecond;
+    public float attacksPerSecond;
 
     [SerializeField]
     public float damage;
@@ -26,7 +26,7 @@ public class Shooter : MonoBehaviour
 
     private void Start() {
         counter = 0f;
-        timer = 1 / attacksPerSecond;
+        
         //  effectContainer = this.transform.GetChild(0).gameObject;
         //pBaseBullet = (GameObject)Resources.Load("/Assets/Prefabs/BaseBullet.prefab", typeof(GameObject));
         bulletContainer = GameObject.Find("BulletContainer");
@@ -34,6 +34,7 @@ public class Shooter : MonoBehaviour
     }
 
     private void Update() {
+        timer = 1 / attacksPerSecond;
         counter += Time.deltaTime;
 
         if (counter > timer && Input.GetKey(KeyCode.Mouse0) && pm.canShoot) {

@@ -23,8 +23,8 @@ public class EffectExplosion : Effect
 
     public override bool Consolidate(float[] args)
     {
-        radius += args[0];
-        damage += args[1];
+        radius = Mathf.Max(radius, args[0]);
+        damage *= args[1];
         return true;
     }
 }

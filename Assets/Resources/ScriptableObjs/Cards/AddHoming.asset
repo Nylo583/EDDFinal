@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6450a2f6986415744950208c0edf2f27, type: 3}
-  m_Name: Explosion
+  m_Name: AddHoming
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: acd0eb9dd60235e45bd8fafab535efbd, type: 3}
-  nameText: Explosive Rounds
-  descriptionText: Bullets explode # units around them, dealing # damage.
+  image: {fileID: 21300000, guid: 420da9c2beaffd84ebeb281e2de4bb9d, type: 3}
+  nameText: Cosmic Barrage
+  descriptionText: Shoots # extra homing bullets that deal # damage.
   args:
   - 0
   - 0

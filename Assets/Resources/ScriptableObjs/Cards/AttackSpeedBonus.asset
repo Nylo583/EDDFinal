@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b06be5f8391a67419ae38b3155ae051, type: 3}
-  m_Name: Explosion
+  m_Script: {fileID: 11500000, guid: 6450a2f6986415744950208c0edf2f27, type: 3}
+  m_Name: AttackSpeedBonus
   m_EditorClassIdentifier: 
-  effect: EffectExplosion
-  data: 5,5,15,15/.25,.35,.4,.5
+  image: {fileID: 21300000, guid: 35e77a854281cc04ebf54b019e730c34, type: 3}
+  nameText: Fervor
+  descriptionText: Grants # bonus attack speed.
+  args:
+  - 0
+  isPercent: 01

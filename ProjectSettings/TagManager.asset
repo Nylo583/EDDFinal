@@ -70,3 +70,6 @@ TagManager:
   - name: Totem
     uniqueID: 3386269937
     locked: 0
+  - name: CARD_OVERLAY
+    uniqueID: 834546301
+    locked: 0

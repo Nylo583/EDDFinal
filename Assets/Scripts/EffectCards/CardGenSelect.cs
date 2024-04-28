@@ -47,6 +47,7 @@ public class CardGenSelect : MonoBehaviour
     {
         UnityEngine.Random.InitState(System.DateTime.Now.Millisecond);
         Time.timeScale = 0f;
+        GetComponent<SpriteRenderer>().enabled = true;
         GameObject.Find("Canvas").GetComponent<CanvasGroup>().alpha = 0f;
         CreateRandomCard(leftTransform);
         CreateRandomCard(middleTransform);
@@ -104,5 +105,6 @@ public class CardGenSelect : MonoBehaviour
         }
         Time.timeScale = 1.0f;
         GameObject.Find("Canvas").GetComponent<CanvasGroup>().alpha = 1f;
+        GetComponent<SpriteRenderer>().enabled = false;
     }
 }
