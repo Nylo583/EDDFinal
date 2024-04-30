@@ -43,7 +43,10 @@ public class HealthComponent : MonoBehaviour
                     Destroy(this.gameObject);
                 }
             }
-            if (sceneLoader != null) { sceneLoader.LoadScene("DeathMenu"); }
+            if (sceneLoader != null) {
+                PersistingData.Instance.SCORE = Mathf.RoundToInt(wv.score);
+                sceneLoader.LoadScene("DeathMenu"); 
+            }
             else { Destroy(gameObject); }
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -147,6 +148,27 @@ public class PlayerMovement : MonoBehaviour
                     totem.GetComponent<Rigidbody2D>().velocity.y);
             }
         }
+
+        if (!isTotemHeld && canInteractWithTotem && Input.GetKeyDown(KeyCode.C)) {
+            this.transform.GetChild(0).gameObject.SetActive(true);
+            StartCoroutine(HoldToEscape());
+        }
+
+        if (Input.GetKeyUp(KeyCode.C)) {
+            this.transform.GetChild(0).gameObject.SetActive(false);
+            StopCoroutine(HoldToEscape());
+        }
+    }
+
+    IEnumerator HoldToEscape() {
+        float counter = 0;
+        while (counter < 2) {
+            GameObject.Find("Slider").GetComponent<Slider>().value = counter/2f;
+            counter += Time.deltaTime;
+            yield return null;
+        }
+        PersistingData.Instance.SCORE = (int)GameObject.Find("WorldVariables").GetComponent<WorldVariables>().score;
+        this.GetComponent<SceneLoader>().LoadScene("EscapeMenu");
     }
 
     [SerializeField]
