@@ -11,6 +11,6 @@ public class GotoLeaderboard : MonoBehaviour
             GameObject.Find("Text2").gameObject.GetComponent<TMP_Text>().text;
 
         //load leaderboard scene
-        //this.gameObject.GetComponent<SceneLoader>().LoadScene("LeaderboardMenu");
+        this.gameObject.GetComponent<SceneLoader>().LoadScene("LeaderboardMenu");
     }
 }
