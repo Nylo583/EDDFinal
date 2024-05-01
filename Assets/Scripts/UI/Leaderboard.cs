@@ -90,7 +90,7 @@ public class Leaderboard : MonoBehaviour
             }
         }
         string build = "";
-        for (int i = start; i < Mathf.Min(10, leaderboard.Count-start); i++)
+        for (int i = start; i < start + Mathf.Min(10, leaderboard.Count-start); i++)
         {
             ScorePackage package = leaderboard[i];
             if (idx == i)
@@ -112,10 +112,12 @@ public class Leaderboard : MonoBehaviour
         }
        
 
-        if (end && idx > 20)
+        if (end && idx >= 20)
         {
-            build.Remove(build.Length-21);
-            build += String.Format("{0}. {1}    {2}\n", (idx + 1).ToString("D2"), p.Name, p.Score.ToString("D6"));
+            Debug.Log(build);
+            build = build.Remove(build.Length-19);
+            Debug.Log(build);
+            build += String.Format("\n<color=#58e88d>{0}. {1}    {2}</color>\n", (idx + 1).ToString("D2"), p.Name, p.Score.ToString("D6"));
         }
 
         t.text = build;
